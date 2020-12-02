@@ -1,7 +1,12 @@
 on: [push, pull_request]
 jobs:
-  zadanie:
-    runs-on: ubuntu-latest
+  job_id:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest,windows-latest, macos-latest]
+    runs-on: ${{ matrix.platform }}
     steps:
-      - run: echo Hello world!
-     
+    - uses: actions/checkout@v2
+    - run: g++ -o test test.cpp
+    - run: ./test
+    - run: ./test
