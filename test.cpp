@@ -6,5 +6,6 @@ int main(){
     random_device r;
     mt19937 gen(r());
     uniform_int_distribution<int> uniform_dist(1, 6);
-    return(uniform_dist(gen));
+    cout<<uniform_dist(gen);
+    return 0;
 }
